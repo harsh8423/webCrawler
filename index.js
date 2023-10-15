@@ -16,13 +16,13 @@ mongoose.connect('mongodb+srv://harsh8423:8423047004@cluster0.1xbklyu.mongodb.ne
 // Assuming you have a Video model defined
 
 // Delete the first 100 objects from the array
-Video.updateMany({}, { $pull: { detail: { $exists: true } }, $slice: { videos: -1000 } }, (err) => {
-  if (err) {
-    console.error('Error occurred while deleting objects:', err);
-  } else {
-    console.log('First 100 objects deleted successfully.');
-  }
-});
+// Video.updateMany({}, { $pull: { detail: { $exists: true } }, $slice: { videos: -1000 } }, (err) => {
+//   if (err) {
+//     console.error('Error occurred while deleting objects:', err);
+//   } else {
+//     console.log('First 100 objects deleted successfully.');
+//   }
+// });
 
 })
   .catch((err) => {
