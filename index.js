@@ -27,6 +27,12 @@ app.get("/hello", async (req, res) => {
 });
 
 const getVideo = async (e) => {
+  const currentTime = new Date().toLocaleTimeString("en-US", {
+    timeZone: "Asia/Kolkata",
+    hour12: false,
+  });
+  const currentHour = Number(currentTime.split(":")[0]);
+  if (currentHour >= 8 && currentHour < 22) {
   try {
     const response = await fetch("https://harshanalytics-server.onrender.com/api/getVideos", {
       method: "GET",
@@ -41,6 +47,7 @@ const getVideo = async (e) => {
     console.error("Error sending video data:", error);
   }
 };
+}
 setInterval(getVideo,10*60*1000);
 
 app.listen(8000 , () =>{
