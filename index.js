@@ -1,7 +1,23 @@
 const express= require('express')
 const app=express()
+const cors = require("cors");
 
-router.get("/hello", async (req, res) => {
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://harshanalytics.vercel.app",
+  "https://harshanalytics-server.onrender.com"
+  // Add more origins as needed
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+}));
+
+
+
+app.get("/hello", async (req, res) => {
   try {
         res.json({ success:true});
       }catch (err) {
